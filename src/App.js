@@ -43,7 +43,6 @@ export default class App extends Component {
               <Route path="/" exact component={Index} />
               <Route path="/login" exact component={Login} />
               <PrivateRoute path="/dashboard" exact component={Admin} />
-              
             </Switch>
           </div>
       </Router>

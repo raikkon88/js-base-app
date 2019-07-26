@@ -7,13 +7,13 @@ const { Item } = Sidebar;
 export default class Admin extends Component {
 
   sidebar = [
-    <Item key="hello" text="Hello" to="/hello-world" />
+    <Item key="users" text="Users" to="/dashboard/users" />
   ]
 
   render() {
     return (
       <AdminLTE title={["Dashboard"]} titleShort={["Dh"]} theme="blue" sidebar={this.sidebar}>
-        <Dashboard />
+        <Dashboard path="/dashboard"/>
       </AdminLTE>
     );
   }
