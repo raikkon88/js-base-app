@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-ro
 
 import Index from "./components/index.component";
 import Login from "./components/login.component";
-import Dashboard from "./components/dashboard.component";
+import Admin from "./components/admin";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   
@@ -38,7 +38,20 @@ export default class App extends Component {
     const { isAuthenticated } = this.state;
     return (
       <Router>
-          <div className="container">
+          <div>
+            <Switch>
+              <Route path="/" exact component={Index} />
+              <Route path="/login" exact component={Login} />
+              <PrivateRoute path="/dashboard" exact component={Admin} />
+              
+            </Switch>
+          </div>
+      </Router>
+    );
+
+  }
+}
+/*<div className="container">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <Link to="/" className="navbar-brand">APP Name</Link>
               <div className="collpase navbar-collapse">
@@ -59,16 +72,4 @@ export default class App extends Component {
                 }
               </div> 
             </nav>
-            <br/>
-            <Switch>
-              <Route path="/" exact component={Index} />
-              <Route path="/login" exact component={Login} />
-              <PrivateRoute path="/dashboard" exact component={Dashboard} />
-              
-            </Switch>
-          </div>
-      </Router>
-    );
-
-  }
-}
+            <br/>*/
